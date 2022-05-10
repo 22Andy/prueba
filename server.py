@@ -37,14 +37,8 @@ def val():
     tel=request.form['tel']
     ema=request.form['ema']
     contr=request.form['contr']
-    if fun.existeusuario(ema): # si existe el usuario
-        return render_template('registro.html')
-    else: # no existe el usuario
-        fun.insertuser(name,ap,tel,ema,contr)
-        return render_template('regisexi.html',name=name,ap=ap,tel=tel,ema=ema,contr=contr)
-        
-
-    
+    fun.insertuser(name,ap,tel,ema,contr)
+    return render_template('regisexi.html',name=name,ap=ap,tel=tel,ema=ema,contr=contr)
 
 if __name__== '__main__':
     app.run(port=PORT,debug=DEBUG)
